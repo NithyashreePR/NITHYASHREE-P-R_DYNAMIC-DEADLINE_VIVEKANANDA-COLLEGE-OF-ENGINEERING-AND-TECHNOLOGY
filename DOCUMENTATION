@@ -1,0 +1,8 @@
+Initially when I read the question, I went to the Asana Platform and learnt about what was necessary(like api key creation,task creation ,task modulation etc.
+Then I started to code and took the help of AI as well.
+The main problem I faced was understanding how to connect the API as there were lot of aspects like task id, project id, and workspace id for which I took some time to understand and identify them properly.
+Later on I was easily able to access Asana tasks through API and was able to set the dates according to the given details in the task(14 days if priority is low, 2 if high and 7 if medium).
+During this I faced a lot of issues with respect to API and its status codes for which I took chatgpt's aide and was able to rectify them.
+Then came in the major issue that I face regarding the deadline extension when the high priority task is moved to In Progress Section.
+I tried to solve it by using various ways and iterations buy I was unable to solve it as the script succesfullt showed that the dates were modified but API connectivity was an issue due to which the extended dates were not being reflected in Asana.
+This issue persisted even after ensuring the correct API connectivity. I think it was related to Asana's internal task update policies, and despite trying multiple iterations, I could not resolve it completely.
