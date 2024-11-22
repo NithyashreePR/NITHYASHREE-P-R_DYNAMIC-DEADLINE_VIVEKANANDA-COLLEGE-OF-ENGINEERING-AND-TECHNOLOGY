@@ -85,8 +85,8 @@ In the script:
  Expected Output
  The script will output updates for task due dates in the console. For example:
   ```plaintext
-  Task 1208826928587395 updated with due date: 20241124
-  Task 1208826928581234 updated with due date: 20241126
+  Task 1208826928587395 updated with due date: 2024-11-24
+  Task 1208826928581234 updated with due date: 2024-11-26
   ```
 
 
