@@ -18,10 +18,16 @@ PRIORITY_DUE_DAYS = {
 
 # Function to calculate due date based on priority
 def calculate_due_date(priority_level):
+    """
+    Calculate the due date for a task based on its priority level.
+    """
     return (datetime.now() + timedelta(days=PRIORITY_DUE_DAYS[priority_level])).strftime("%Y-%m-%d")
 
 # Function to assign a due date to a task
 def assign_due_date(task_id, due_date):
+    """
+    Assign a specific due date to a task.
+    """
     url = f"https://app.asana.com/api/1.0/tasks/{task_id}"
     payload = {
         "data": {
@@ -36,6 +42,9 @@ def assign_due_date(task_id, due_date):
 
 # Function to extend due dates for tasks in 'In Progress'
 def extend_due_dates_in_progress(high_priority_task_id, project_id):
+    """
+    Extend the due dates of all tasks in the 'In Progress' section, except the high-priority task.
+    """
     url = f"https://app.asana.com/api/1.0/projects/{project_id}/tasks?opt_fields=id,due_on,assignee_status"
     response = requests.get(url, headers=HEADERS)
     if response.status_code == 200:
@@ -65,6 +74,9 @@ def extend_due_dates_in_progress(high_priority_task_id, project_id):
 
 # Function to verify the validity of a project ID
 def verify_project_id(project_id):
+    """
+    Verify whether the provided project ID is valid.
+    """
     url = f"https://app.asana.com/api/1.0/projects/{project_id}"
     response = requests.get(url, headers=HEADERS)
     if response.status_code != 200:
@@ -74,6 +86,11 @@ def verify_project_id(project_id):
 
 # Main function to handle task updates
 def handle_task_update(task_id, priority_level, project_id):
+    """
+    Main function to handle task updates:
+    1. Assigns a due date based on priority.
+    2. Extends due dates of other tasks in progress if priority is high.
+    """
     # Assign due date based on priority
     due_date = calculate_due_date(priority_level)
     assign_due_date(task_id, due_date)
@@ -85,6 +102,6 @@ def handle_task_update(task_id, priority_level, project_id):
 # Entry point
 if __name__ == "__main__":
     TASK_ID = "1208826928587395"
-    PRIORITY_LEVEL = "Mid"  # Change to Low, Mid, or High as needed
+    PRIORITY_LEVEL = "Low"  # Change to Low, Mid, or High as needed
     PROJECT_ID = "1208826931765461"
     handle_task_update(TASK_ID, PRIORITY_LEVEL,PROJECT_ID)
