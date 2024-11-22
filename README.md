@@ -101,7 +101,7 @@ In the script:
 
 
  Author
-Akash  
-[GitHub Profile](https://github.com/YourGitHubProfile)  
+Nithyashree P R 
+[GitHub Profile]([https://github.com/YourGitHubProfile](https://github.com/NithyashreePR))  
 
 Feel free to reach out via GitHub Issues for questions or feedback!
